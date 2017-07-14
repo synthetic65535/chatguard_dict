@@ -1,11 +1,11 @@
-# ---------------------- ChatGuard 7.0 default configuration file --------------------- #
+﻿# ---------------------- ChatGuard 7.0 default configuration file --------------------- #
 # Dont worry if you have just updated plugin. Old configuration saved as old_config.yml #
-#        Please read comments and dont ask silly questions about configurating          #
+#        Please read comments and dont ask silly questions about configuration          #
 #   Dont use Notepad++ default tabulation. Enable 'Replace by space' in Tab Settings    #
 # ------------------------------------------------------------------------------------- #
 
 # dont touch this
-Version: 2
+Version: 6
 
 Check for updates: false
 
@@ -17,7 +17,6 @@ Hard mode: false
 swear settings:
     enabled: true
     inform admins: true
-    #max warnings: 10
     max warnings: 3
     # supports color codes
     custom replacement: '<мат>'
@@ -43,12 +42,9 @@ spam settings:
     enabled: true
     inform admins: true
     max warnings: 3
-    # change only if you know something about regular expressions
-    domain regexp: '([0-9a-z]{2,}\.)+(ru|com|org|ua|su|tv|net|biz|info|name|mobi|kz|by|lv|eu|tk)(:\d*)?'
-    ip regexp: '((?<![0-9])(?:(?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[ ]?[.,-:; ][ ]?(?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[ ]?[., ][ ]?(?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})[ ]?[., ][ ]?(?:25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2}))(?![0-9]))'
     custom replacement: '<спам>'
     # set how many numbers can players send in one message, 0 - disable
-    max numbers: 10
+    max numbers: 0
 Messages:
     # bad words and spam will be replaced with appropriate replacement if disabled
     cancel if violation: true
@@ -95,12 +91,22 @@ Punishment settings:
         spam commands:
             #- cg mute {Player} {Reason_mute-time} {Reason_spam}
             #- broadcast {Reason_msg-spam}
+# replace first element with second element in messages
+Substitutions:
+#- 'green|red'
 Other settings:
     check signs: true
+    check items: true
     # check player's command for swearing, capsing and flooding
     # to disable this set value to []. Number after colon means how many arguements in command we should skip
-    check commands: ['/me:0', '/msg:1', '/tell:1', '/w:1', '/r:0', '/m:1']
+    check commands: ['/me:0', '/msg:1', '/t:1', '/tell:1', '/w:1', '/r:0', '/m:1']
     # may be useful if you find a bug and want report it to developer
     debug level: 0
     # if traditional messages listening system doesnt work(or smth else) plugin can listen packets
     use packets: false
+    # works only if packet listening is disabled
+    # available priorities HIGHEST, HIGH, NORMAL, LOW, LOWEST, MONITOR(not recommended to use)
+    event priority: HIGHEST
+    # Type plugin integration name to disable it if you have issues with it
+    # Names - AuthMe34, AuthMe5, AuthMeLegacy, NoCheatPlus
+    disabled integrations: []
