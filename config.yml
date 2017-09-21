@@ -96,7 +96,7 @@ Substitutions:
 #- 'green|red'
 Other settings:
     check signs: true
-    check items: true
+    check items: false
     # check player's command for swearing, capsing and flooding
     # to disable this set value to []. Number after colon means how many arguements in command we should skip
     check commands: ['/me:0', '/msg:1', '/t:1', '/tell:1', '/w:1', '/r:0', '/m:1', '/clan:1', '/cm:0']
